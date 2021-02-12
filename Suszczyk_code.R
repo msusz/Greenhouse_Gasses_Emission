@@ -13,21 +13,21 @@ glimpse(emission_data)
 emission_data_filtred<-emission_data[,168:268]
 countries<-emission_data[,1]
 emission_data_processed<-data.frame(emission_data_filtred, row.names=countries)
-write.csv(emission_data_processed, 'Suszczyk_prepared_data.csv')
+write.csv(emission_data_processed, "Suszczyk_prepared_data.csv")
 
 
 #choosing data for the UK (graphics package)
 ed_UK<-data.frame(c(1917:2017), t(emission_data_processed["United Kingdom",  ]))
 colnames(ed_UK)<-c("year", "emission")
 plot(ed_UK$year, ed_UK$emission,
-     type="l", col="springgreen", xlab="Rok", 
-     ylab="Emisja gazów cieplarnianych w tonach")
-title("Emisja gazów cieplarnianych Wielkiej Brytanii")
+     type="l", col="springgreen", xlab="Year", 
+     ylab="Tonnes")
+title("Greenhouse gasses emission in United Kingdom")
 
 #data for Poland (ggplot2)
 ed_PL<-data.frame(c(1917:2017), t(emission_data_processed["Poland",  ]))
 colnames(ed_PL)<-c("year", "emission")
-ggplot(ed_PL, aes(year, emission))+labs(x="Rok", y="Emisja gazów cieplarnianych w tonach")+
+ggplot(ed_PL, aes(year, emission))+labs(x="Year", y="Tonnes")+
   theme_gray()+geom_line()
 
 # top 5 countries with the biggest emission in 2017 (lattice)
@@ -56,15 +56,15 @@ l <- list(color = toRGB("grey"), width = 0.5)
 g <- list(
   showframe = FALSE,
   showland = TRUE,
-  projection = list(type = 'Mercator')
+  projection = list(type = "Mercator")
 )
-fig <- plot_geo(top5_2017,locationmode = 'country names')
+fig <- plot_geo(top5_2017,locationmode = "country names")
 fig <- fig %>% add_trace(
   z = ~emission, locations=~country,
   text = ~country, marker = list(line = l)
   )
 fig <- fig %>% layout(
-  title = 'TOP5 krajów z najwieksza emisja 2017',
+  title = "TOP5 countries with the highest emission in 2017",
   geo = g
 )
 fig
@@ -75,5 +75,5 @@ world<-t(world)
 world<-data.frame(c(1917:2017), world)
 colnames(world)<- c("year", "emission")
 world_ts<-ts(world, start=1917, frequency=1)
-plot(forecast(world_ts), main="Prognozy emisji dla swiata", 
-     xlab="rok", ylab="emisja w tonach")
+plot(forecast(world_ts), main="World emission forecast", 
+     xlab="Year", ylab="Tonnes")
