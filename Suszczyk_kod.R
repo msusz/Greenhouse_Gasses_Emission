@@ -3,37 +3,38 @@ library(lattice)
 library(forecast)
 library(ggplot2)
 library(plotly)
-#import danych
+#import data from csv file
 emission_data <- read.csv("~/AGHS3/R/Projekt R/Suszczyk_dane_surowe.csv", comment.char="#");
-#sprawdzenie danych
+#how does the data look like?
 head(emission_data)
 glimpse(emission_data)
-#widzimy, ze wiekszosc wartosci z poczatku danych to 0, dlatego ucinamy dane do 1917r
+#a great majority of data at the beginning is filled with zeros,
+#so I decided to cut data and use measurments from years 1917-2017
 emission_data_filtred<-emission_data[,168:268]
 countries<-emission_data[,1]
 emission_data_processed<-data.frame(emission_data_filtred, row.names=countries)
 write.csv(emission_data_processed, 'Suszczyk_dane_przeksztalcone.csv')
 
 
-#wybranie danych dla Wielkiej Brytanii (pakiet graphics)
+#choosing data for the UK (graphics package)
 ed_UK<-data.frame(c(1917:2017), t(emission_data_processed["United Kingdom",  ]))
 colnames(ed_UK)<-c("year", "emission")
 plot(ed_UK$year, ed_UK$emission,
      type="l", col="springgreen", xlab="Rok", 
-     ylab="Emisja gaz體 cieplarnianych w tonach")
-title("Emisja gaz體 cieplarnianych Wielkiej Brytanii")
+     ylab="Emisja gaz贸w cieplarnianych w tonach")
+title("Emisja gaz贸w cieplarnianych Wielkiej Brytanii")
 
-#dane dla Polski (ggplot2)
+#data for Poland (ggplot2)
 ed_PL<-data.frame(c(1917:2017), t(emission_data_processed["Poland",  ]))
 colnames(ed_PL)<-c("year", "emission")
-ggplot(ed_PL, aes(year, emission))+labs(x="Rok", y="Emisja gaz體 cieplarnianych w tonach")+
+ggplot(ed_PL, aes(year, emission))+labs(x="Rok", y="Emisja gaz贸w cieplarnianych w tonach")+
   theme_gray()+geom_line()
 
-# top 5 najbardziej zanieczyszczajacych krajow (lattice)
+# top 5 countries with the biggest emission in 2017 (lattice)
 ed_sorted <- arrange(emission_data_processed, desc(X2017))
 rownames(ed_sorted[1:5,])
-#widzimy, ze czesc z top5 danych to dane zbiorowe, swiat, EU itd.
-#dlatego trzeba wybrac konkretne kraje
+#some rows from top 5 are summary data, such as World and EU
+#so we need to choose specific countries by name
 rownames(ed_sorted[1:10,])
 top5 <- ed_sorted[c("United States", "China", "Russia", "Germany", "United Kingdom"),]
 top5 <- data.frame(c(1917:2017), t(top5) )
@@ -44,7 +45,7 @@ xyplot(RUS~year, data=top5)
 xyplot(DE~year, data=top5)
 xyplot(UK~year, data=top5)
 
-#mapa najbardziej zanieczyszczajacych krajow 2017 (plotly)
+#map of the most polluting countries in 2017 (plotly)
 top5_2017<-top5["X2017",]
 top5_2017<-t(top5_2017)
 top5_2017<-data.frame(c("year", "US", "China", "Russia", "Germany", "United Kingdom"), top5_2017)
@@ -63,12 +64,12 @@ fig <- fig %>% add_trace(
   text = ~country, marker = list(line = l)
   )
 fig <- fig %>% layout(
-  title = 'TOP5 kraj體 z najwieksza emisja 2017',
+  title = 'TOP5 kraj贸w z najwieksza emisja 2017',
   geo = g
 )
 fig
 
-#przewidywania dla swiata (forecast)
+#forecasting world emission (forecast)
 world<-emission_data_processed["World",]
 world<-t(world)
 world<-data.frame(c(1917:2017), world)
