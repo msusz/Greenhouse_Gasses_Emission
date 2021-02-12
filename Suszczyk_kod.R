@@ -4,7 +4,7 @@ library(forecast)
 library(ggplot2)
 library(plotly)
 #import data from csv file
-emission_data <- read.csv("~/AGHS3/R/Projekt R/Suszczyk_dane_surowe.csv", comment.char="#");
+emission_data <- read.csv("Suszczyk_raw_data.csv", comment.char="#");
 #how does the data look like?
 head(emission_data)
 glimpse(emission_data)
@@ -13,7 +13,7 @@ glimpse(emission_data)
 emission_data_filtred<-emission_data[,168:268]
 countries<-emission_data[,1]
 emission_data_processed<-data.frame(emission_data_filtred, row.names=countries)
-write.csv(emission_data_processed, 'Suszczyk_dane_przeksztalcone.csv')
+write.csv(emission_data_processed, 'Suszczyk_prepared_data.csv')
 
 
 #choosing data for the UK (graphics package)
