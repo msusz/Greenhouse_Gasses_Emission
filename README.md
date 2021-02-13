@@ -5,6 +5,16 @@ This project is an analysis and visualization of greenhouse gasses emission data
 Original data file is [here](https://github.com/msusz/Greenhouse_Gasses_Emission/blob/main/Suszczyk_dane_surowe.csv).
 This file contains a series of measurments of greenhouse gasses emission by every country in the world.
 
+### Used packages
+R packages used in the code:
+- tidyverse
+- lattice
+- forecast
+- ggplot2
+- plotly  
+
+Before running the code make sure that you have all of above installed.
+
 ### Data preparation
 First 50 years covered by the data are mostly zeros, as not many countries were collecting such data since 1750. First column in the data file is filled with countries.The most useful data preparation will include creating a data frame containing first column (countries names) and measures since 1800 and until 2017.
 Prepared data are stored in another CSV file - [here](https://github.com/msusz/Greenhouse_Gasses_Emission/blob/main/Suszczyk_dane_przeksztalcone.csv).
