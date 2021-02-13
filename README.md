@@ -8,6 +8,7 @@
    + [Polish emission data](#polish-emission-data)
    + [TOP5 countries with highest emission in 2017](#top5-countries-with-highest-emission-in-2017)
    + [TOP5 map](#top5-map)
+   + [World emission forecast](#world-emission-forecast)
 
 ### Intro
 This project is an analysis and visualization of greenhouse gasses emission data.
@@ -53,3 +54,6 @@ As I mentioned before, emission for United Kingdom was increasing at a steady pa
 Here is a map of the world with highlited countries discussed in previous paragraph:  
 ![map](plots/top5_emission_map.png)
 
+### World emission forecast
+![forecast](plots/world_emission_forecast.jpeg)  
+Based on past data, emission of greenhouse gasses on the world will be, not suprisingly, rising.
