@@ -11,5 +11,5 @@ Prepared data are stored in another CSV file - [here](https://github.com/msusz/G
 
 ### United Kingdom data
 United Kingdom emission stands out from the rest of the world. Data were collected way before other countries started to take measurments. Lets look at the plot of emission over the years.  
-![UK plot](UK_emission_plot.jpeg)  
+![UK plot](plots/UK_emission_plot.jpeg)  
 As you can see, emission level was increasing at a steady pace in the examined peroid of time.
