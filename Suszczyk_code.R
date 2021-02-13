@@ -72,8 +72,6 @@ fig
 #forecasting world emission (forecast)
 world<-emission_data_processed["World",]
 world<-t(world)
-world<-data.frame(c(1917:2017), world)
-colnames(world)<- c("year", "emission")
 world_ts<-ts(world, start=1917, frequency=1)
 plot(forecast(world_ts), main="World emission forecast", 
      xlab="Year", ylab="Tonnes")
