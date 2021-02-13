@@ -1,5 +1,14 @@
 # Greanhouse gasses emission around the world since 1750 and until 2017
 
+### Table of contents
+   + [Intro](#intro)
+   + [Used packages](#used-packages)
+   + [Data preparation](#data-preparation)
+   + [United Kingdom data](#united-kingdom-data)
+   + [Polish emission data](#polish-emission-data)
+   + [TOP5 countries with highest emission in 2017](#top5-countries-with-highest-emission-in-2017)
+   + [TOP5 map](#top5-map)
+
 ### Intro
 This project is an analysis and visualization of greenhouse gasses emission data.
 Original data file is [here](https://github.com/msusz/Greenhouse_Gasses_Emission/blob/main/Suszczyk_dane_surowe.csv).
