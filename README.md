@@ -13,3 +13,8 @@ Prepared data are stored in another CSV file - [here](https://github.com/msusz/G
 United Kingdom emission stands out from the rest of the world. Data were collected way before other countries started to take measurments. Lets look at the plot of emission over the years.  
 ![UK plot](plots/UK_emission_plot.jpeg)  
 As you can see, emission level was increasing at a steady pace in the examined peroid of time.
+
+### Polish emission data
+![PL plot](plots/Poland_emission_plot.jpeg)  
+Polish emission increase is less stable. On the plot we can see effects that the World War II had on this country. During the war emission rised, possibly due to the rise in importance of heavy industry. Then, after the war ended, everything slowed down. Emission was still increasing, but slower, untill it reached quite stable level of growth around 1990.
+
