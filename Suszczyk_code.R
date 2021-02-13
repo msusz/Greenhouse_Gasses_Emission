@@ -28,7 +28,7 @@ title("Greenhouse gasses emission in United Kingdom")
 ed_PL<-data.frame(c(1917:2017), t(emission_data_processed["Poland",  ]))
 colnames(ed_PL)<-c("year", "emission")
 ggplot(ed_PL, aes(year, emission))+labs(x="Year", y="Tonnes")+
-  theme_gray()+geom_line()
+  theme_gray()+geom_line()+ggtitle("Greenhouse gasses emission in Poland")
 
 # top 5 countries with the biggest emission in 2017 (lattice)
 ed_sorted <- arrange(emission_data_processed, desc(X2017))
