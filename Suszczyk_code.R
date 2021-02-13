@@ -39,11 +39,11 @@ rownames(ed_sorted[1:10,])
 top5 <- ed_sorted[c("United States", "China", "Russia", "Germany", "United Kingdom"),]
 top5 <- data.frame(c(1917:2017), t(top5) )
 colnames(top5)<-c("year", "US", "CHN", "RUS", "DE", "UK")
-xyplot(US~year, data=top5)
-xyplot(CHN~year, data=top5)
-xyplot(RUS~year, data=top5)
-xyplot(DE~year, data=top5)
-xyplot(UK~year, data=top5)
+xyplot(US~year, data=top5, main="United States")
+xyplot(CHN~year, data=top5, main="China")
+xyplot(RUS~year, data=top5, main="Russia")
+xyplot(DE~year, data=top5, main="Germany")
+xyplot(UK~year, data=top5, main="United Kingdom")
 
 #map of the most polluting countries in 2017 (plotly)
 top5_2017<-top5["X2017",]
